@@ -1,0 +1,21 @@
+{
+  "name": "astha-charitable-trust-ngo---botad",
+  "version": "1.0.0",
+  "description": "Website for Astha Charitable Trust's visitor record",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run start"
+  },
+  "author": "Jay Sabva",
+  "license": "ISC",
+  "devDependencies": {
+    "mongoose": "^8.0.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "morgan": "^1.10.0"
+  }
+}
