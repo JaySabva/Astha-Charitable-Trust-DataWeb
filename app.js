@@ -12,6 +12,8 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+const route = require("./routes/route");
+
 mongoose.connect(process.env.DATABASE.replace('<PASSWORD>', process.env.PASSWORD), {
         useNewUrlParser: true,
     }
@@ -27,6 +29,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use('/api', route);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');

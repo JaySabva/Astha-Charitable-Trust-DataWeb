@@ -13,6 +13,10 @@ const labharthiSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    referenceName: {
+        type: String,
+        required: true,
+    },
     dob: {
         type: Date,
         required: true
@@ -28,6 +32,7 @@ const labharthiSchema = new mongoose.Schema({
     mobileNo: {
         type: String,
         required: true,
+        match: /^\d{10}$/,
     },
     typeofDisability: {
         type: String,
@@ -35,25 +40,36 @@ const labharthiSchema = new mongoose.Schema({
     },
     precentageOfDisability: {
         type: String,
-        required: true
+        required: true,
+        min: 0,
+        max: 100
     },
     dateofVisit: {
         type: Date,
         required: true
     },
     timeofVisit: {
-        type: String,
+        type: Date,
         required: true
     },
     purposeofVisit: {
         type: String,
         required: true
     },
-    help: [{
-        help: String,
-        helpOrganization: String,
-        helpDate: Date,
-    }]
+    help: {
+        help: {
+            type: String,
+            required: true,
+        },
+        helpOrganization: {
+            type: String,
+            required: true,
+        },
+        helpDate: {
+            type: Date,
+            required: true,
+        },
+    },
 });
 
 const Labharthi = mongoose.model('Labharthi', labharthiSchema);

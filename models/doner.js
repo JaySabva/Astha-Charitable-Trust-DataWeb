@@ -51,5 +51,5 @@ const donorSchema = new mongoose.Schema({
     },
 });
 
-const doner = mongoose.model('doner', labharthiSchema);
+const doner = mongoose.model('doner', donorSchema);
 module.exports = doner;
