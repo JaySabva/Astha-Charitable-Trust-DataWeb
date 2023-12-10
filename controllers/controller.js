@@ -18,7 +18,6 @@ exports.labharthiRegistration = async (req, res, next) => {
             typeofDisability: req.body.typeofDisability,
             precentageOfDisability: req.body.precentageOfDisability,
             dateofVisit: req.body.dateofVisit,
-            timeofVisit: req.body.timeofVisit,
             purposeofVisit: req.body.purposeofVisit,
             help: req.body.help
         });
@@ -106,7 +105,7 @@ exports.labharthiView = async (req, res, next) => {
 exports.labharthiEdit = async (req, res, next) => {
     try {
         const id = req.params.id;
-
+        console.log(req.body);
         await labharthi.updateOne({_id: id}, req.body).exec();
         console.log(req.body);
         return res.status(200).json({

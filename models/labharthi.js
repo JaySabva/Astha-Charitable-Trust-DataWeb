@@ -48,10 +48,6 @@ const labharthiSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    timeofVisit: {
-        type: Date,
-        required: true
-    },
     purposeofVisit: {
         type: String,
         required: true
