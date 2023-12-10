@@ -354,6 +354,7 @@ exports.labharthiDownload = async (req, res, next) => {
             labharthi.dob.toISOString().split('T')[0], // Format date as string
             labharthi.aadharCardNo,
             labharthi.mobileNo,
+            labharthi.address,
             labharthi.typeofDisability,
             labharthi.precentageOfDisability,
             labharthi.dateofVisit.toISOString().split('T')[0], // Format date as string
@@ -372,6 +373,7 @@ exports.labharthiDownload = async (req, res, next) => {
             'DOB',
             'Aadhar Card No',
             'Mobile No',
+            'Address',
             'Type of Disability',
             'Percentage of Disability',
             'Date of Visit',
