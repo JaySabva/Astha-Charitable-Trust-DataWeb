@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const XLSX = require('xlsx');
 
 const labharthi = require('../models/labharthi');
 const donor = require('../models/donor');
@@ -337,5 +338,170 @@ exports.otherDelete = async (req, res, next) => {
         return res.status(500).json({
             error: err
         });
+    }
+};
+
+exports.labharthiDownload = async (req, res, next) => {
+    try {
+        const labharthis = await labharthi.find(); // Fetch all Labharthi data from your database
+
+        // Convert Labharthi data to an array of arrays
+        const data = labharthis.map((labharthi) => [
+            labharthi.fname,
+            labharthi.mname,
+            labharthi.lname,
+            labharthi.referenceName,
+            labharthi.dob.toISOString().split('T')[0], // Format date as string
+            labharthi.aadharCardNo,
+            labharthi.mobileNo,
+            labharthi.typeofDisability,
+            labharthi.precentageOfDisability,
+            labharthi.dateofVisit.toISOString().split('T')[0], // Format date as string
+            labharthi.purposeofVisit,
+            labharthi.help.help,
+            labharthi.help.helpOrganization,
+            labharthi.help.helpDate.toISOString().split('T')[0], // Format date as string
+        ]);
+
+        // Adding header row
+        const header = [
+            'First Name',
+            'Middle Name',
+            'Last Name',
+            'Reference Name',
+            'DOB',
+            'Aadhar Card No',
+            'Mobile No',
+            'Type of Disability',
+            'Percentage of Disability',
+            'Date of Visit',
+            'Purpose of Visit',
+            'Help',
+            'Help Organization',
+            'Help Date',
+        ];
+
+        data.unshift(header);
+
+        // Create a worksheet
+        const ws = XLSX.utils.aoa_to_sheet(data);
+
+        // Create a workbook with a single sheet
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Labharthi Data');
+
+        // Create a buffer
+        const buf = XLSX.write(wb, { bookType: 'xlsx', type: 'buffer' });
+
+        // Set response headers
+        res.setHeader('Content-Disposition', 'attachment; filename=labharthi_data.xlsx');
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        res.end(buf, 'binary');
+    } catch(err) {
+        console.log(err);
+        return res.status(500).json({
+            error: err
+        });
+    }
+}
+exports.donorDownload = async (req, res, next) => {
+    try {
+        const donors = await donor.find(); // Fetch all Donor data from your database
+
+        // Convert Donor data to an array of arrays
+        const data = donors.map((donor) => [
+            donor.fname,
+            donor.mname,
+            donor.lname,
+            donor.dob.toISOString().split('T')[0], // Format date as string
+            donor.aadharCardNo,
+            donor.address,
+            donor.mobileNo,
+            donor.whatsappNo,
+            donor.dateofVisit.toISOString().split('T')[0], // Format date as string
+            donor.infoOfDonation,
+            donor.review,
+        ]);
+
+        // Adding header row
+        const header = [
+            'First Name',
+            'Middle Name',
+            'Last Name',
+            'DOB',
+            'Aadhar Card No',
+            'Address',
+            'Mobile No',
+            'WhatsApp No',
+            'Date of Visit',
+            'Information of Donation',
+            'Review',
+        ];
+
+        data.unshift(header);
+
+        // Create a worksheet
+        const ws = XLSX.utils.aoa_to_sheet(data);
+
+        // Create a workbook with a single sheet
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Donor Data');
+
+        // Create a buffer
+        const buf = XLSX.write(wb, { bookType: 'xlsx', type: 'buffer' });
+
+        // Set response headers
+        res.setHeader('Content-Disposition', 'attachment; filename=donor_data.xlsx');
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        res.end(buf, 'binary');
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+exports.otherDownload = async (req, res, next) => {
+    try {
+        const others = await other.find(); // Fetch all Other data from your database
+
+        // Convert Other data to an array of arrays
+        const data = others.map((other) => [
+            other.fname,
+            other.mname,
+            other.lname,
+            other.dateofVisit.toISOString().split('T')[0], // Format date as string
+            other.mobileNo,
+            other.reasonOfVisit,
+        ]);
+
+        // Adding header row
+        const header = [
+            'First Name',
+            'Middle Name',
+            'Last Name',
+            'Date of Visit',
+            'Mobile No',
+            'Reason of Visit',
+        ];
+
+        data.unshift(header);
+
+        // Create a worksheet
+        const ws = XLSX.utils.aoa_to_sheet(data);
+
+        // Create a workbook with a single sheet
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Other Data');
+
+        // Create a buffer
+        const buf = XLSX.write(wb, { bookType: 'xlsx', type: 'buffer' });
+
+        // Set response headers
+        res.setHeader('Content-Disposition', 'attachment; filename=other_data.xlsx');
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        res.end(buf, 'binary');
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error');
     }
 }

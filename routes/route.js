@@ -18,4 +18,8 @@ router.get('/other/view', controller.otherView);
 router.patch('/other/edit/:id', controller.otherEdit);
 router.delete('/other/delete/:id', controller.otherDelete);
 
+router.get('/labharthi/download', controller.labharthiDownload);
+router.get('/donor/download', controller.donorDownload);
+router.get('/other/download', controller.otherDownload);
+
 module.exports = router;
