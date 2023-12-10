@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Registration Form</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #07074d;
+            padding: 20px;
+            background-color: #6a64f1;
+            margin: 0;
+        }
+
+        #donorForm {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #536387;
+            font-size: 14px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #dde3ec;
+            border-radius: 5px;
+            background-color: #ffffff;
+            font-weight: 500;
+            font-size: 16px;
+            color: #536387;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #6a64f1;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        button {
+            background-color: #6a64f1;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #544de2;
+        }
+    </style>
+</head>
+<body>
+<h1>Donor Registration Form</h1>
+<form id="donorForm">
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname" required>
+
+    <label for="mname">Middle Name:</label>
+    <input type="text" id="mname" name="mname" required>
+
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="lname" required>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="aadharCardNo">Aadhar Card Number:</label>
+    <input type="text" id="aadharCardNo" name="aadharCardNo" required>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" rows="4" required></textarea>
+
+    <label for="mobileNo">Mobile Number:</label>
+    <input type="tel" id="mobileNo" name="mobileNo" pattern="\d{10}" required>
+
+    <label for="whatsappNo">WhatsApp Number:</label>
+    <input type="tel" id="whatsappNo" name="whatsappNo" pattern="\d{10}" required>
+
+    <label for="dateofVisit">Date of Visit:</label>
+    <input type="date" id="dateofVisit" name="dateofVisit" required>
+
+    <label for="infoOfDonation">Information of Donation:</label>
+    <textarea id="infoOfDonation" name="infoOfDonation" rows="4" required></textarea>
+
+    <label for="review">Review:</label>
+    <textarea id="review" name="review" rows="4" required></textarea>
+
+    <button type="button" onclick="submitDonorForm()">Submit</button>
+</form>
+
+<script>
+    async function submitDonorForm() {
+        const formData = {
+            fname: document.getElementById('fname').value,
+            mname: document.getElementById('mname').value,
+            lname: document.getElementById('lname').value,
+            dob: document.getElementById('dob').value,
+            aadharCardNo: document.getElementById('aadharCardNo').value,
+            address: document.getElementById('address').value,
+            mobileNo: document.getElementById('mobileNo').value,
+            whatsappNo: document.getElementById('whatsappNo').value,
+            dateofVisit: document.getElementById('dateofVisit').value,
+            infoOfDonation: document.getElementById('infoOfDonation').value,
+            review: document.getElementById('review').value,
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/api/donor/registration', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert('Donor registration successful!');
+                console.log(data);
+            } else {
+                alert('Error registering donor. Please try again.');
+                console.error(data);
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
+    }
+</script>
+</body>
+</html>
