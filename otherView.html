@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Details</title>
+    <link rel="stylesheet" href="other.css">
+    <script src="other.js"></script>
+</head>
+<body>
+<h1>Other Details</h1>
+<div id="searchFormContainer">
+    <button id="dropdownButton" onclick="toggleSearchForm()">Filter</button>
+    <form id="searchForm" onsubmit="searchOther(); return false;" style="display: none">
+        <div>
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname">
+        </div>
+
+        <div>
+            <label for="mname">Middle Name:</label>
+            <input type="text" id="mname" name="mname">
+        </div>
+
+        <div>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname">
+        </div>
+
+        <div>
+            <label for="dateofVisit">Date of Visit:</label>
+            <input type="date" id="dateofVisit" name="dateofVisit">
+        </div>
+
+        <div>
+            <label for="mobileNo">Mobile Number:</label>
+            <input type="text" id="mobileNo" name="mobileNo">
+        </div>
+
+        <div>
+            <label for="reasonOfVisit">Reason of Visit:</label>
+            <input type="text" id="reasonOfVisit" name="reasonOfVisit">
+        </div>
+
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<div id="otherContainer"></div>
+
+<div id="editModal">
+    <form id="editForm" onsubmit="saveEditedOther(); return false;">
+        <div>
+            <label for="edit_fname">First Name:</label>
+            <input type="text" id="edit_fname" name="fname">
+        </div>
+
+        <div>
+            <label for="edit_mname">Middle Name:</label>
+            <input type="text" id="edit_mname" name="mname">
+        </div>
+
+        <div>
+            <label for="edit_lname">Last Name:</label>
+            <input type="text" id="edit_lname" name="lname">
+        </div>
+
+        <div>
+            <label for="edit_dateofVisit">Date of Visit:</label>
+            <input type="date" id="edit_dateofVisit" name="dateofVisit">
+        </div>
+
+        <div>
+            <label for="edit_mobileNo">Mobile Number:</label>
+            <input type="text" id="edit_mobileNo" name="mobileNo">
+        </div>
+
+        <div>
+            <label for="edit_reasonOfVisit">Reason of Visit:</label>
+            <input type="text" id="edit_reasonOfVisit" name="reasonOfVisit">
+        </div>
+
+        <button type="submit">Save</button>
+    </form>
+    <button onclick="closeEditModal()">Cancel</button>
+</div>
+</body>
+</html>

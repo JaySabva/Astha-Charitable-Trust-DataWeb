@@ -1,0 +1,142 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #07074d;
+    padding: 20px;
+    background-color: #6a64f1;
+    margin: 0;
+}
+
+#searchFormContainer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#dropdownButton {
+    background-color: #6a64f1;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#searchForm {
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+#searchForm div {
+    width: 48%;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#searchForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+#searchForm input,
+#searchForm select,
+#searchForm button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#searchForm button {
+    background-color: #6a64f1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#searchForm button:hover {
+    background-color: #4f49d0;
+}
+
+#otherContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.otherCard {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.otherCard h2 {
+    color: #07074d;
+    margin-bottom: 10px;
+}
+
+.otherCard p {
+    margin: 0;
+    color: #536387;
+    margin-bottom: 10px;
+}
+
+.otherInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.editDeleteButtons {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.editDeleteButtons button {
+    margin-left: 10px;
+}
+
+/* Styles for the edit modal */
+#editModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#editForm div {
+    width: 48%;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-bottom: 10px;
+}
