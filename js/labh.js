@@ -31,7 +31,7 @@ async function searchLabharthi() {
             .map(key => `${key}=${encodeURIComponent(formDataObject[key])}`)
             .join('&');
 
-        const response = await fetch(`http://localhost:3000/api/labharthi/view?${queryString}`);
+        const response = await fetch(`https://aastha-charitable-trust.onrender.com/api/labharthi/view?${queryString}`);
         const data = await response.json();
 
         if (response.ok) {
@@ -54,7 +54,7 @@ function clearLabharthiDetails() {
 
 async function fetchLabharthiDetails() {
     try {
-        const response = await fetch('http://localhost:3000/api/labharthi/view');
+        const response = await fetch('https://aastha-charitable-trust.onrender.com/api/labharthi/view');
         const data = await response.json();
 
         if (response.ok) {
@@ -90,7 +90,7 @@ function updateLabharthi(event, id) {
         }
     });
 
-    fetch(`http://localhost:3000/api/labharthi/edit/${id}`, {
+    fetch(`https://aastha-charitable-trust.onrender.com/api/labharthi/edit/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -115,7 +115,7 @@ function deleteLabharthi(id) {
     if (!confirmation) {
         return;
     }
-    fetch(`http://localhost:3000/api/labharthi/delete/${id}`, {
+    fetch(`https://aastha-charitable-trust.onrender.com/api/labharthi/delete/${id}`, {
         method: 'DELETE'
     })
         .then(response => response.json())

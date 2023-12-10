@@ -26,7 +26,7 @@ async function searchDonor() {
             .map(key => `${key}=${encodeURIComponent(formDataObject[key])}`)
             .join('&');
 
-        const response = await fetch(`http://localhost:3000/api/donor/view?${queryString}`);
+        const response = await fetch(`https://aastha-charitable-trust.onrender.com/api/donor/view?${queryString}`);
         const data = await response.json();
 
         if (response.ok) {
@@ -49,7 +49,7 @@ function clearDonorDetails() {
 
 async function fetchDonorDetails() {
     try {
-        const response = await fetch('http://localhost:3000/api/donor/view');
+        const response = await fetch('https://aastha-charitable-trust.onrender.com/api/donor/view');
         const data = await response.json();
 
         if (response.ok) {
@@ -85,7 +85,7 @@ function updateDonor(event, id) {
         }
     });
 
-    fetch(`http://localhost:3000/api/donor/edit/${id}`, {
+    fetch(`https://aastha-charitable-trust.onrender.com/api/donor/edit/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ function deleteDonor(id) {
     if (!confirmation) {
         return;
     }
-    fetch(`http://localhost:3000/api/donor/delete/${id}`, {
+    fetch(`https://aastha-charitable-trust.onrender.com/api/donor/delete/${id}`, {
         method: 'DELETE'
     })
         .then(response => response.json())
