@@ -33,7 +33,7 @@ async function searchOther() {
             // Clear existing other details
             clearOtherDetails();
             // Display the new other details
-            displayOtherCards(data.others);
+            displayOtherCards(data.user);
         } else {
             console.error(data);
         }

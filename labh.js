@@ -158,27 +158,29 @@ function displayLabharthiCards(users) {
                         <h2>${user.fname} ${user.mname} ${user.lname}</h2>
                         <div class="labharthiInfo">
                             <div>
+                                <p><strong>First Name:</strong> ${user.fname}</p>
+                                <p><strong>Middle Name:</strong> ${user.mname}</p>
+                                <p><strong>Last Name:</strong> ${user.lname}</p>
                                 <p><strong>Reference Name:</strong> ${user.referenceName}</p>
                                 <p><strong>Date of Birth:</strong> ${user.dob}</p>
                                 <p><strong>Aadhar Card Number:</strong> ${user.aadharCardNo}</p>
                                 <p><strong>Address:</strong> ${user.address}</p>
-                            </div>
-                            <div>
-                                <p><strong>Mobile Number:</strong> ${user.mobileNo}</p>
                                 <p><strong>Type of Disability:</strong> ${user.typeofDisability}</p>
                                 <p><strong>Percentage of Disability:</strong> ${user.precentageOfDisability}</p>
                             </div>
-                        </div>
-                        <div class="labharthiInfo">
                             <div>
+                                <p><strong>Mobile Number:</strong> ${user.mobileNo}</p>
                                 <p><strong>Date of Visit:</strong> ${user.dateofVisit}</p>
                                 <p><strong>Purpose of Visit:</strong> ${user.purposeofVisit}</p>
-                            </div>
-                            <div>
                                 <p><strong>Help Type:</strong> ${user.help.help}</p>
                                 <p><strong>Help Organization:</strong> ${user.help.helpOrganization}</p>
                                 <p><strong>Help Date:</strong> ${user.help.helpDate}</p>
                                 <p><strong>User ID:</strong>${user._id}</p>
+                            </div>
+                        </div>
+                        <div class="labharthiInfo">
+                            <div>
+
                             </div>
                         </div>
                     `;

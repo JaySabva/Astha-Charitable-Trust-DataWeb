@@ -33,7 +33,7 @@ async function searchDonor() {
             // Clear existing donor details
             clearDonorDetails();
             // Display the new donor details
-            displayDonorCards(data.donors);
+            displayDonorCards(data.user);
         } else {
             console.error(data);
         }
