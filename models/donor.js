@@ -28,17 +28,15 @@ const donorSchema = new mongoose.Schema({
     mobileNo: {
         type: String,
         required: true,
+        match: /^\d{10}$/,
     },
     whatsappNo: {
         type: String,
         required: true,
+        match: /^\d{10}$/,
     },
     dateofVisit: {
         type: Date,
-        required: true
-    },
-    timeofVisit: {
-        type: String,
         required: true
     },
     infoOfDonation: {
@@ -51,5 +49,5 @@ const donorSchema = new mongoose.Schema({
     },
 });
 
-const doner = mongoose.model('doner', donorSchema);
-module.exports = doner;
+const donor = mongoose.model('donor', donorSchema);
+module.exports = donor;

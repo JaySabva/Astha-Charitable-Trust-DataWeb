@@ -20,6 +20,7 @@ const otherSchema = new mongoose.Schema({
     mobileNo: {
         type: String,
         required: true,
+        match: /^\d{10}$/,
     },
     reasonOfVisit: {
         type: String,
