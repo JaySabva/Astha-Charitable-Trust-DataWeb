@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labharthi Details</title>
+    <link rel="stylesheet" href="labh.css">
+    <script src="labh.js"></script>
+<body>
+<h1>Labharthi Details</h1>
+<div id="searchFormContainer">
+    <button id="dropdownButton" onclick="toggleSearchForm()">Filter</button>
+    <form id="searchForm" onsubmit="searchLabharthi(); return false;" style="display: none">
+        <div>
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname">
+        </div>
+
+        <div>
+            <label for="mname">Middle Name:</label>
+            <input type="text" id="mname" name="mname">
+        </div>
+
+        <div>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname">
+        </div>
+
+        <div>
+            <label for="referenceName">Reference Name:</label>
+            <input type="text" id="referenceName" name="referenceName">
+        </div>
+
+        <div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+
+        <div>
+            <label for="aadharCardNo">Aadhar Card Number:</label>
+            <input type="text" id="aadharCardNo" name="aadharCardNo">
+        </div>
+
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+        </div>
+
+        <div>
+            <label for="mobileNo">Mobile Number:</label>
+            <input type="text" id="mobileNo" name="mobileNo">
+        </div>
+
+        <div>
+            <label for="typeofDisability">Type of Disability:</label>
+            <input type="text" id="typeofDisability" name="typeofDisability">
+        </div>
+
+        <div>
+            <label for="precentageOfDisability">Percentage of Disability:</label>
+            <input type="text" id="precentageOfDisability" name="precentageOfDisability">
+        </div>
+
+        <div>
+            <label for="dateofVisit">Date of Visit:</label>
+            <input type="date" id="dateofVisit" name="dateofVisit">
+        </div>
+
+        <div>
+            <label for="purposeofVisit">Purpose of Visit:</label>
+            <input type="text" id="purposeofVisit" name="purposeofVisit">
+        </div>
+
+        <div>
+            <label for="help">Help Type:</label>
+            <input type="text" id="help" name="help">
+        </div>
+
+        <div>
+            <label for="helpOrganization">Help Organization:</label>
+            <input type="text" id="helpOrganization" name="helpOrganization">
+        </div>
+
+        <div>
+            <label for="helpDate">Help Date:</label>
+            <input type="date" id="helpDate" name="helpDate">
+        </div>
+
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<div id="labharthiContainer"></div>
+
+<div id="editModal" style="display: none">
+    <form id="editForm" onsubmit="saveEditedLabharthi(); return false;">
+        <div>
+            <label for="fname">First Name:</label>
+            <input type="text" id="edit_fname" name="fname">
+        </div>
+
+        <div>
+            <label for="mname">Middle Name:</label>
+            <input type="text" id="edit_mname" name="mname">
+        </div>
+
+        <div>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="edit_lname" name="lname">
+        </div>
+
+        <div>
+            <label for="referenceName">Reference Name:</label>
+            <input type="text" id="edit_referenceName" name="referenceName">
+        </div>
+
+        <div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="edit_dob" name="dob">
+        </div>
+
+        <div>
+            <label for="aadharCardNo">Aadhar Card Number:</label>
+            <input type="text" id="edit_aadharCardNo" name="aadharCardNo">
+        </div>
+
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="edit_address" name="address">
+        </div>
+
+        <div>
+            <label for="mobileNo">Mobile Number:</label>
+            <input type="text" id="edit_mobileNo" name="mobileNo">
+        </div>
+
+        <div>
+            <label for="typeofDisability">Type of Disability:</label>
+            <input type="text" id="edit_typeofDisability" name="typeofDisability">
+        </div>
+
+        <div>
+            <label for="precentageOfDisability">Percentage of Disability:</label>
+            <input type="text" id="edit_precentageOfDisability" name="precentageOfDisability">
+        </div>
+
+        <div>
+            <label for="dateofVisit">Date of Visit:</label>
+            <input type="date" id="edit_dateofVisit" name="dateofVisit">
+        </div>
+
+        <div>
+            <label for="purposeofVisit">Purpose of Visit:</label>
+            <input type="text" id="edit_purposeofVisit" name="purposeofVisit">
+        </div>
+
+        <div>
+            <label for="help">Help Type:</label>
+            <input type="text" id="edit_help" name="help">
+        </div>
+
+        <div>
+            <label for="helpOrganization">Help Organization:</label>
+            <input type="text" id="edit_helpOrganization" name="helpOrganization">
+        </div>
+
+        <div>
+            <label for="helpDate">Help Date:</label>
+            <input type="date" id="edit_helpDate" name="helpDate">
+        </div>
+
+        <button type="submit">Save</button>
+    </form>
+    <button onclick="closeEditModal()">Cancel</button>
+</div>
+</body>
+</html>
